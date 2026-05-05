@@ -1,3 +1,5 @@
+--Skript zur Erstellung der Datenbank und Tabellen für das SAE-Projekt
+
 CREATE DATABASE IF NOT EXISTS SAE_PK;
  
 USE SAE_PK;
