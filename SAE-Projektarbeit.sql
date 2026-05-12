@@ -1,4 +1,4 @@
---Skript zur Erstellung der Datenbank und Tabellen für das SAE-Projekt
+-- Skript zur Erstellung der Datenbank und Tabellen für das SAE-Projekt
 
 CREATE DATABASE IF NOT EXISTS SAE_PK;
  
@@ -27,9 +27,7 @@ CREATE TABLE IF NOT EXISTS kunde (
     id_kunde INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(45),
     branche VARCHAR(45),
-    kundennummer VARCHAR(45),
-    bestellung_bestellnummer INT,
-    FOREIGN KEY (bestellung_bestellnummer) REFERENCES bestellung(bestellnummer)
+    kundennummer VARCHAR(45)
 );
  
 CREATE TABLE IF NOT EXISTS standort_has_kunde (
@@ -38,6 +36,14 @@ CREATE TABLE IF NOT EXISTS standort_has_kunde (
     kunde_id_kunde INT,
     FOREIGN KEY (standort_id_ort) REFERENCES standort(id_ort),
     FOREIGN KEY (kunde_id_kunde) REFERENCES kunde(id_kunde)
+);
+
+CREATE TABLE IF NOT EXISTS kunde_has_bestellung (
+    id_kunde_has_bestellung INT AUTO_INCREMENT PRIMARY KEY,
+    kunde_id_kunde INT,
+    bestellung_bestellnummer INT,
+    FOREIGN KEY (kunde_id_kunde) REFERENCES kunde(id_kunde),
+    FOREIGN KEY (bestellung_bestellnummer) REFERENCES bestellung(bestellnummer)
 );
  
 CREATE TABLE IF NOT EXISTS produkt_bestellung (
