@@ -1,0 +1,1 @@
+SELECT name, preis FROM produkt ORDER BY preis DESC;
