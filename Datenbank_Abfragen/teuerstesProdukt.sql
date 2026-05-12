@@ -1,1 +1,2 @@
-SELECT MAX(preis) AS teuerstes_produkt FROM produkt;
+SELECT MAX(preis) AS teuerstes_produkt 
+FROM produkt;
